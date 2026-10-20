@@ -1,0 +1,5 @@
+* text=auto eol=lf
+Dependencias/** -whitespace
+Laboratorios/08-Cadenas/risas/*.a text
+Laboratorios/08-Cadenas/risas/** -whitespace
+*.pdf binary

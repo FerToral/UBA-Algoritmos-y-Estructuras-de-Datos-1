@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.7cm]{geometry}
+\title{Taller de \LaTeX\\Algoritmos y Estructuras de Datos I}
+\author{Fernando Toralez}
+\date{}
+\newcommand{\ent}{\mathbb Z}
+\newcommand{\seq}[1]{\operatorname{seq}\langle#1\rangle}
+\newcommand{\longitud}[1]{\lvert#1\rvert}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Productos y factorial}
+El factorial de un entero positivo se define como
+\[
+ n!=\prod_{i=1}^{n}i.
+\]
+Por ejemplo:
+\[
+ 5!=\prod_{i=1}^{5}i=1\cdot2\cdot3\cdot4\cdot5=120.
+\]
+\section{Especificación}
+\subsection{Factorial}
+\begin{description}
+ \item[Procedimiento] $\operatorname{factorial}(\mathrm{in}\ n:\ent,
+              \mathrm{out}\ resultado:\ent)$.
+ \item[Precondición] $n\geq0$.
+ \item[Postcondición]
+ $(n=0\Rightarrow resultado=1)\land
+  (n>0\Rightarrow resultado=\prod_{k=1}^{n}k)$.
+\end{description}
+La especificación establece qué resultado se espera, sin fijar un algoritmo.
+\subsection{Predicados sobre secuencias}
+Definimos primero la primalidad para poder utilizarla en los predicados:
+\[
+ \operatorname{esPrimo}(n)\equiv n>1\land
+ \neg\exists d\in\ent:\ 1<d<n\land n\bmod d=0.
+\]
+Para $s:\seq{\ent}$:
+\begin{align*}
+ \operatorname{todosPrimos}(s)
+ &\equiv \forall i\in\ent:\ 0\leq i<\longitud{s}
+                   \Rightarrow \operatorname{esPrimo}(s[i]),\\
+ \operatorname{alMenosUnPrimo}(s)
+ &\equiv \exists i\in\ent:\ 0\leq i<\longitud{s}
+                   \land \operatorname{esPrimo}(s[i]).
+\end{align*}
+La secuencia vacía satisface el primero y no satisface el segundo.
+\subsection{Suma de primos}
+\[
+ \operatorname{sumaPrimos}(s)=
+ \sum_{i=0}^{\longitud{s}-1}
+ \begin{cases}
+   s[i],&\text{si }\operatorname{esPrimo}(s[i]),\\
+   0,&\text{en otro caso}.
+ \end{cases}
+\]
+La suma vacía se define como cero.
+\section{Notación de un promedio cuadrático}
+Como práctica adicional de acentos, índices y sumatorias:
+\[
+ \widehat R(\widehat f,\overline D)=
+ \frac{1}{\lvert\overline D\rvert}
+ \sum_{i:(X_i,Y_i)\in\overline D}
+       (Y_i-\widehat f(X_i))^2,\qquad \lvert\overline D\rvert>0.
+\]
+Es un ejemplo de notación matemática; la no vacuidad evita dividir por cero.
+\end{document}

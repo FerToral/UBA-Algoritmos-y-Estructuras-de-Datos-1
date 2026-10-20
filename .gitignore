@@ -1,0 +1,13 @@
+build/
+cmake-build*/
+.idea/
+__pycache__/
+*.pyc
+*.exe
+*.o
+*.obj
+*.a
+!Laboratorios/08-Cadenas/risas/*.a
+
+Laboratorios/*/lib/
+Trabajos-Practicos/*/lib/

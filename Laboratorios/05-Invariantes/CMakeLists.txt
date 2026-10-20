@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.13)
+project(Invariantes LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 14)
+enable_testing()
+add_library(ciclos ejercicios.cpp)
+add_executable(ciclos_pruebas pruebas.cpp)
+target_link_libraries(ciclos_pruebas PRIVATE ciclos)
+add_test(NAME invariantes COMMAND ciclos_pruebas)

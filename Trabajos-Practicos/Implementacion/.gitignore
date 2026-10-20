@@ -1,0 +1,11 @@
+build*/
+cmake-build*/
+.idea/
+*.exe
+*.gcda
+*.gcno
+*.gcov
+*.bak
+prueba_grilla_*.tsv
+prueba_recorridos_*.tsv
+.ipynb_checkpoints/
